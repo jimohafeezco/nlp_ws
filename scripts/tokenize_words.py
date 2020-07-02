@@ -17,3 +17,6 @@ def word_sentence_tokenize(text):
     word_tokenized.append(word_tokenize(tokenized_sentence))
     
   return word_tokenized
+
+
+#  brief_cleaning = (re.sub("[^A-Za-z']+", ' ', str(row)).lower() for row in df['spoken_words'])
