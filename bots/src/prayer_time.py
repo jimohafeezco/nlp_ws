@@ -1,5 +1,6 @@
 # import required modules 
 import requests, json 
+from datetime import datetime
 
 # Enter your API key here 
 
@@ -19,6 +20,7 @@ def get_prayer(user_message):
     # get method of requests module 
     # return response object 
     response = requests.get(complete_url) 
+    current_date =datetime.date(datetime.now())
 
 
     x = response.json() 
@@ -34,12 +36,12 @@ def get_prayer(user_message):
         if user_message.capitalize() in l :
     # print(prayer_time)
             prayer= user_message.capitalize()
-            return "The time for {} is {}".format(prayer, prayer_time[prayer])
+            return "The time for {} on {} is {}".format(prayer, current_date, prayer_time[prayer])
         elif user_message.lower() =="magrib":
             prayer ="Maghrib"
-            return "The time for {} is {}".format(prayer, prayer_time[prayer])
+            return "The time for {} is {}".format(prayer, current_date, prayer_time[prayer])
         else:            
-            return "the time for prayers are {}".format( prayer_time)
+            return "the time for prayers today : {}, are {}".format(current_date, prayer_time)
 
         # return prayer_time
     else: 
